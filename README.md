@@ -1,4 +1,4 @@
-# Angular Dockable Toolbar
+# Angular Dockable Toolbars
 
 This project was generated with the [Angular CLI](https://github.com/angular/angular-cli) version 1.6.5.
 The Dock and Float toolbars are created using the [dsxDockFloatPro JavaScript Library](http://www.htmldockfloat.com/index.htm).
