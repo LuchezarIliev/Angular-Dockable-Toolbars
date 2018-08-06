@@ -1,0 +1,22 @@
+
+/* for auto hide panel*/
+/* for left auto hide panel */
+.dfahpanelleft {background-Color:ButtonFace;color:Green;font-family:Georgia;font-style:italic;font-size:12px/30px;font-weight:bold}
+/* for top auto hide panel */
+.dfahpaneltop {background-Color:ButtonFace;color:Navy;font-family:Georgia;font-style:italic;font-size:12px/30px;font-weight:bold}
+/* for right auto hide panel */
+.dfahpanelright {background-Color:Purple;color:Navy;font-family:Serif;font-style:oblique;font-size:10px/24px;font-weight:normal}
+/* for bottom auto hide panel */
+.dfahpanelbottom {background-Color:Aqua;color:Lime;font-family:Serif;font-style:oblique;font-size:10px/24px;font-weight:normal}
+
+/* for tabbed area global setting*/
+.dftabpanel {background-Color:Red;color:Green;font-family:Georgia;font-style:italic;font-size:12px/30px;font-weight:bold}
+
+/* floate frame global setting */
+.dffloatframe {background-Color:Blue;border-Radius:8px}
+
+/* for title bar */
+#mydfa {background-Color:red;color:Blue;font-family:Georgia;font-style:italic;font-size:12px/30px;font-weight:bold}
+#mydfb {background-Color:red;color:Blue;font-family:Georgia;font-style:italic;font-size:12px/30px;font-weight:bold}
+#mydfc {background-Color:red;color:Blue;font-family:Georgia;font-style:italic;font-size:12px/30px;font-weight:bold}
+#mydfd {background-Color:red;color:Blue;font-family:Georgia;font-style:italic;font-size:12px/30px;font-weight:bold}
