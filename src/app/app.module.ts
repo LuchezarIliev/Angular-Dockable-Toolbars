@@ -26,5 +26,6 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 
 export class AppModule {
     constructor() {
+      //TODO: load the settings string containing state of the toolbars
     }
 }

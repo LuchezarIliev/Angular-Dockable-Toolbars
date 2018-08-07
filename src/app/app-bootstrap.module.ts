@@ -12,4 +12,7 @@ import { PopoverModule } from 'ngx-bootstrap/popover';
   ],
   exports: [TooltipModule, PopoverModule]
 })
-export class AppBootstrapModule {}
+
+export class AppBootstrapModule {
+
+}
