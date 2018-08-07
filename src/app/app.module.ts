@@ -6,14 +6,12 @@ import { FormsModule } from '@angular/forms'; // <-- NgModel lives here
 import { AppBootstrapModule } from './app-bootstrap.module';
 
 import { AppComponent } from './master-view.component';
-import { HeroesComponent } from './heroes/heroes.component';
 import { ControlComponent } from './control/control.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent,
     ControlComponent,
     ToolbarComponent
   ],
@@ -25,8 +23,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
   providers: [],
   bootstrap: [AppComponent]
 })
- 
+
 export class AppModule {
-    constructor() {  
+    constructor() {
     }
 }
