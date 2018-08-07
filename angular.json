@@ -3,11 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-<<<<<<< HEAD
-    "angular-tour-of-heroes": {
-=======
     "angular-dockable-toolbar": {
->>>>>>> 5abc69f93f6926b12ba8523d540433378df40306
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
