@@ -3,7 +3,11 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+<<<<<<< HEAD
     "angular-tour-of-heroes": {
+=======
+    "angular-dockable-toolbar": {
+>>>>>>> 5abc69f93f6926b12ba8523d540433378df40306
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -49,18 +53,30 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
+<<<<<<< HEAD
             "browserTarget": "angular-tour-of-heroes:build"
           },
           "configurations": {
             "production": {
               "browserTarget": "angular-tour-of-heroes:build:production"
+=======
+            "browserTarget": "angular-dockable-toolbar:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "angular-dockable-toolbar:build:production"
+>>>>>>> 5abc69f93f6926b12ba8523d540433378df40306
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+<<<<<<< HEAD
             "browserTarget": "angular-tour-of-heroes:build"
+=======
+            "browserTarget": "angular-dockable-toolbar:build"
+>>>>>>> 5abc69f93f6926b12ba8523d540433378df40306
           }
         },
         "test": {
@@ -94,7 +110,11 @@
         }
       }
     },
+<<<<<<< HEAD
     "angular-tour-of-heroes-e2e": {
+=======
+    "angular-dockable-toolbar-e2e": {
+>>>>>>> 5abc69f93f6926b12ba8523d540433378df40306
       "root": "",
       "sourceRoot": "e2e",
       "projectType": "application",
@@ -103,7 +123,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
+<<<<<<< HEAD
             "devServerTarget": "angular-tour-of-heroes:serve"
+=======
+            "devServerTarget": "angular-dockable-toolbar:serve"
+>>>>>>> 5abc69f93f6926b12ba8523d540433378df40306
           }
         },
         "lint": {
@@ -120,7 +144,11 @@
       }
     }
   },
+<<<<<<< HEAD
   "defaultProject": "angular-tour-of-heroes",
+=======
+  "defaultProject": "angular-dockable-toolbar",
+>>>>>>> 5abc69f93f6926b12ba8523d540433378df40306
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",

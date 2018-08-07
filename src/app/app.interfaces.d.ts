@@ -20,10 +20,18 @@ export interface Coordinates {
     saveStatesIntoKey(key): ToolbarPanel,
     setVisible(visibility): boolean
   }
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 5abc69f93f6926b12ba8523d540433378df40306
   export interface DockPosition {
     dockTop: number,
     dockLeft: number,
     dockRight: number,
     dockBottom: number
+<<<<<<< HEAD
   }
+=======
+  }
+>>>>>>> 5abc69f93f6926b12ba8523d540433378df40306

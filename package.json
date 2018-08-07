@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "angular-tour-of-heroes",
+=======
+  "name": "angular-dockable-toolbar",
+>>>>>>> 5abc69f93f6926b12ba8523d540433378df40306
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
