@@ -25,12 +25,12 @@ export class ToolbarComponent implements AfterContentInit, OnInit {
       tbClass: string,
       tbDivId: string,
       tbWidth: number,
-      tbHeigth: number,
+      tbHeight: number,
       tbPosition: number): ToolbarPanel {
 
-      let toolbar: ToolbarPanel = mainView.createDFPanel(tbTitle, tbClass);
+      const toolbar: ToolbarPanel = mainView.createDFPanel(tbTitle, tbClass);
       toolbar.addContentDiv(document.getElementById(tbDivId));
-      toolbar.initLayout(300, 50, tbWidth, tbHeigth, tbPosition);
+      toolbar.initLayout(300, 50, tbWidth, tbHeight, tbPosition);
 
       return toolbar;
       
@@ -44,10 +44,10 @@ export class ToolbarComponent implements AfterContentInit, OnInit {
 
         this.mainView = DSXDFUtil.createDSXDFUtil();
 
-        this.toolbar1 = this.toolbarInit(this.mainView, "Toolbar #1", "mydfa", "toolbar1", 400, 100, DSXDFPanel.dockTop),
-        this.toolbar2 = this.toolbarInit(this.mainView, "Toolbar #2", "mydfa", "toolbar2", 275, 200, DSXDFPanel.dockLeft),
-        this.toolbar3 = this.toolbarInit(this.mainView, "Toolbar #3", "mydfa", "toolbar3", 350, 200, DSXDFPanel.dockRight),
-        this.toolbar4 = this.toolbarInit(this.mainView, "Toolbar #4", "mydfa", "toolbar4", 400, 100, DSXDFPanel.dockBottom);
+        this.toolbar1 = this.toolbarInit(this.mainView, 'Toolbar #1', 'mydfa', 'toolbar1', 400, 100, DSXDFPanel.dockTop),
+        this.toolbar2 = this.toolbarInit(this.mainView, 'Toolbar #2', 'mydfa', 'toolbar2', 275, 200, DSXDFPanel.dockLeft),
+        this.toolbar3 = this.toolbarInit(this.mainView, 'Toolbar #3', 'mydfa', 'toolbar3', 350, 200, DSXDFPanel.dockRight),
+        this.toolbar4 = this.toolbarInit(this.mainView, 'Toolbar #4', 'mydfa', 'toolbar4', 400, 100, DSXDFPanel.dockBottom);
 
     }
 

@@ -11,7 +11,7 @@ declare var DSXDFUtil: ToolbarPanel;
   templateUrl: './master-view.component.html',
   styleUrls: ['./master-view.component.css']
 })
- 
+
 export class AppComponent implements AfterContentInit, OnInit {
 
     public dsxdfUtil: ToolbarPanel;
@@ -25,10 +25,10 @@ export class AppComponent implements AfterContentInit, OnInit {
     public persistCurrentState(): void {
 
       if(this.dsxdfUtil != null) {
-        this.dsxdfUtil.saveStatesIntoKey("Settings");
-        console.log("State Saved!");
+        this.dsxdfUtil.saveStatesIntoKey('Settings');
+        console.log('State Saved!');
       }
-      
+ 
     }
 
     /* After the content is initiallized: 
@@ -39,9 +39,9 @@ export class AppComponent implements AfterContentInit, OnInit {
     ngAfterContentInit() {
 
       this.dsxdfUtil = DSXDFUtil.createDSXDFUtil();
-      this.dsxdfUtil.addFixedPanel(document.getElementById("centerdiv"), DSXDFUtil.fixedCenter);
-      this.dsxdfUtil.loadStatesFromKey("Settings");
-      console.log("State Loaded!");
+      this.dsxdfUtil.addFixedPanel(document.getElementById('centerdiv'), DSXDFUtil.fixedCenter);
+      this.dsxdfUtil.loadStatesFromKey('Settings');
+      console.log('State Loaded!');
     }
 
     ngOnInit() {
