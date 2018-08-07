@@ -1,12 +1,13 @@
 
 import { Component, AfterContentInit, OnInit } from '@angular/core';
+import { ConfigService } from './config.service';
 import { ToolbarPanel } from './app.interfaces';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
 declare var DSXDFUtil: ToolbarPanel;
 
 @Component({
-  providers: [ToolbarComponent],
+  providers: [ToolbarComponent, ConfigService],
   selector: 'app-root',
   templateUrl: './master-view.component.html',
   styleUrls: ['./master-view.component.css']
@@ -16,7 +17,7 @@ export class AppComponent implements AfterContentInit, OnInit {
 
     public dsxdfUtil: ToolbarPanel;
 
-    constructor(private toolbarComponent: ToolbarComponent) { }
+    constructor(private toolbarComponent: ToolbarComponent, private configService: ConfigService) { }
 
     public showToolbar(visibility): void {
       this.toolbarComponent.showToolbarComponent(visibility);
@@ -45,5 +46,6 @@ export class AppComponent implements AfterContentInit, OnInit {
     }
 
     ngOnInit() {
+      this.configService.getJSON().subscribe(data => { console.log(data); });
     }
 }
