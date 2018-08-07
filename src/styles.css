@@ -1,0 +1,89 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* for auto hide panel*/
+.dfahpanelleft, .dfahpaneltop, .dfahpanelright, .dfahpanelbottom {
+    background-Color: #067002;
+    color: Black;
+    font-family: Georgia;
+    font-style: normal;
+    font-size: 12px/30px;
+    font-weight: bold;
+    width: 25px;
+}
+/* for toolbar frame */
+.dffloatframe {
+    background-Color: White;
+    border-Radius: 8px;
+}
+/* for title bar */
+.mydfaTitle {
+    background-Color: #20a8d8;
+    color: White;
+    font-family: Georgia;
+    font-style: bold;
+    font-size: 25px;
+    font-weight: bold;
+    border: 2px solid #1982a8;
+    height: 50px;
+    text-align: left;
+    padding-right: 0px;
+    vertical-align: baseline;
+}
+/* for Auto Hide */
+.mydfaAutoHide {
+    padding-right: 0px;
+    background-Color: #26d820;
+    height: 30px;
+    width: 130px;
+    text-align: center;
+    font-family: Georgia;
+    font-style: normal;
+    font-size: 20px;
+    border: 1px dashed #067002;
+    cursor: default;
+}
+.mydfaAutoHide:hover {
+    background-Color: #05a500;
+    color: White;
+}
+/* for Pin */
+.mydfaPin {
+    background-Repeat: no-repeat;
+}
+/* for Close */
+.mydfaClose {
+    background-Repeat: no-repeat;
+}
+/* for Tab Inactive */
+.mydfaTabInactive {
+    background-Color: White;
+    border-radius: 16px 16px solid Black;
+    border-radius: 0px 8px;
+    color: ButtonFace;
+    text-align: center;
+    font-family: Georgia;
+    font-style: normal;
+    font-size: 15px;
+}
+
+.mydfaTabInactive:hover{
+    background-Color: White;
+    border-radius: 16px 16px solid Black;
+    border-radius: 0px 8px;
+    color: #969696;
+    text-align: center;
+    font-family: Georgia;
+    font-style: normal;
+    font-size: 17px;
+}
+/* for Tab Active */
+.mydfaTabActive {
+    background-Color: ButtonFace;
+    border-radius: 16px 16px solid Black;
+    border-radius: 0px 8px;
+    color: #969696;
+    text-align: center;
+    font-family: Georgia;
+    font-style: normal;
+    font-size: 20px;
+}
