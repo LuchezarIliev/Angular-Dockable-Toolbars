@@ -33,7 +33,6 @@ export class ToolbarComponent implements AfterContentInit, OnInit {
       toolbar.initLayout(300, 50, tbWidth, tbHeight, tbPosition);
 
       return toolbar;
-      
     }
 
     public showToolbarComponent(visibility): void {
@@ -48,7 +47,6 @@ export class ToolbarComponent implements AfterContentInit, OnInit {
         this.toolbar2 = this.toolbarInit(this.mainView, 'Toolbar #2', 'mydfa', 'toolbar2', 275, 200, DSXDFPanel.dockLeft),
         this.toolbar3 = this.toolbarInit(this.mainView, 'Toolbar #3', 'mydfa', 'toolbar3', 350, 200, DSXDFPanel.dockRight),
         this.toolbar4 = this.toolbarInit(this.mainView, 'Toolbar #4', 'mydfa', 'toolbar4', 400, 100, DSXDFPanel.dockBottom);
-
     }
 
     ngOnInit() {
