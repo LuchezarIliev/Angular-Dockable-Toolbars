@@ -5,8 +5,10 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class ConfigService {
 
+  public state: string;
+
   constructor(private http: HttpClient) { 
-    this.getJSON().subscribe(data => { console.log(data); });
+    this.getJSON().subscribe((data: Object) => { this.state = data["Settings"]; });
   }
 
   public getJSON(): Observable<Object> {

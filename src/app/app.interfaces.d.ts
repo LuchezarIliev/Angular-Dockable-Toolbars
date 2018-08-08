@@ -16,9 +16,11 @@ export interface Coordinates {
     initLayout(tbLeft: number, tbTop: number, tbWidth: number, tbHeigth: number, tbPosition: number): HTMLElement,
     createDFPanel(tbTitle: string, tbClass: string): ToolbarPanel,
     createDSXDFUtil(): ToolbarPanel,
-    loadStatesFromKey(key): ToolbarPanel,
-    saveStatesIntoKey(key): ToolbarPanel,
-    setVisible(visibility): boolean
+    loadStatesFromKey(key: string): ToolbarPanel,
+    loadStatesFromString(str: string): void,
+    saveStatesIntoKey(key: string): ToolbarPanel,
+    saveStatesIntoString(): string,
+    setVisible(visibility: boolean): boolean
   }
   
   export interface DockPosition {

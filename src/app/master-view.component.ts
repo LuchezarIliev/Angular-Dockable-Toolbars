@@ -26,24 +26,18 @@ export class AppComponent implements AfterContentInit, OnInit {
     public persistCurrentState(): void {
 
       if (this.dsxdfUtil != null) {
-        this.dsxdfUtil.saveStatesIntoKey('Settings');
-        console.log('State Saved!');
+        //this.dsxdfUtil.saveStatesIntoKey('Settings');
+        sessionStorage.setItem('Settings', this.dsxdfUtil.saveStatesIntoString());
       }
     }
 
-    /* After the content is initiallized:
-     > create the central component (to which the toolbars will be docked);
-     > make it fixed to the center;
-     > load persisted state from 'Settings';
-    */
-    ngAfterContentInit() {
-
-      this.dsxdfUtil = DSXDFUtil.createDSXDFUtil();
-      this.dsxdfUtil.addFixedPanel(document.getElementById('centerdiv'), DSXDFUtil.fixedCenter);
-      this.dsxdfUtil.loadStatesFromKey('Settings');
+    ngOnInit() {
+      this.configService.getJSON().subscribe((data: Object) => { this.dsxdfUtil.loadStatesFromString(data['Settings']); });
     }
 
-    ngOnInit() {
-      this.configService.getJSON().subscribe(data => { console.log(data); });
+    ngAfterContentInit() {
+      this.dsxdfUtil = DSXDFUtil.createDSXDFUtil();
+      this.dsxdfUtil.addFixedPanel(document.getElementById('centerdiv'), DSXDFUtil.fixedCenter);
+      //this.dsxdfUtil.loadStatesFromKey('Settings');
     }
 }
