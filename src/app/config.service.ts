@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/operators/map';
 
 @Injectable()
 export class ConfigService {
 
-  public state: string;
+  private settingsUrl: string = '../assets/settings.json';
 
   constructor(private http: HttpClient) { 
-    this.getJSON().subscribe((data: Object) => { this.state = data["Settings"]; });
+    //this.getJSON().subscribe((data: Object) => { });
+  }
+/*
+  public getJSON(): Promise<Object> {
+    return this.http.get<Object>(this.settingsUrl).toPromise();
+  }
+*/
+  public getJSON(): Observable<Object> {
+    return this.http.get<Object>(this.settingsUrl);
   }
 
-  public getJSON(): Observable<Object> {
-    return this.http.get('../assets/settings.json');
-  }
 }
