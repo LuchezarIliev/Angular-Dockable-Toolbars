@@ -7,14 +7,8 @@ export class ConfigService {
 
   private settingsUrl: string = '../assets/settings.json';
 
-  constructor(private http: HttpClient) { 
-    //this.getJSON().subscribe((data: Object) => { });
-  }
-/*
-  public getJSON(): Promise<Object> {
-    return this.http.get<Object>(this.settingsUrl).toPromise();
-  }
-*/
+  constructor(private http: HttpClient) { }
+
   public getJSON(): Observable<Object> {
     return this.http.get<Object>(this.settingsUrl);
   }

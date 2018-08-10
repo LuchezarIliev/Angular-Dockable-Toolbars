@@ -22,7 +22,7 @@ export class ToolbarComponent implements AfterContentInit, OnInit {
 
     constructor(private configService: ConfigService) { }
 
-    private toolbarInit(
+    public toolbarInit(
       mainView: ToolbarPanel,
       tbTitle?: string,
       tbClass?: string,
@@ -43,16 +43,17 @@ export class ToolbarComponent implements AfterContentInit, OnInit {
     }
 
     public ngAfterContentInit(): void {
-        
+
         this.configService.getJSON().subscribe((data: Object) => {
           this.mainView = DSXDFUtil.createDSXDFUtil();
           this.mainView.loadStatesFromString(data['Settings']);
+          console.log('State loaded!');
           this.toolbar1 = this.toolbarInit(this.mainView, 'Toolbar #1', 'mydfa', 'toolbar1', 400, 100, DSXDFPanel.dockTop),
           this.toolbar2 = this.toolbarInit(this.mainView, 'Toolbar #2', 'mydfa', 'toolbar2', 275, 200, DSXDFPanel.dockLeft),
           this.toolbar3 = this.toolbarInit(this.mainView, 'Toolbar #3', 'mydfa', 'toolbar3', 350, 200, DSXDFPanel.dockRight),
           this.toolbar4 = this.toolbarInit(this.mainView, 'Toolbar #4', 'mydfa', 'toolbar4', 400, 100, DSXDFPanel.dockBottom);
         });
-        
+
     }
 
     ngOnInit() {
