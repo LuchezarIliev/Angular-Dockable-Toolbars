@@ -1,6 +1,7 @@
 
 import { Component, AfterContentInit, OnInit } from '@angular/core';
 import { ToolbarPanel, DockPosition } from '../app.interfaces';
+import { ConfigService } from '../config.service';
 
 declare var DSXDFUtil: ToolbarPanel;
 declare var DSXDFPanel: DockPosition;
@@ -19,14 +20,16 @@ export class ToolbarComponent implements AfterContentInit, OnInit {
     public toolbar3: ToolbarPanel;
     public toolbar4: ToolbarPanel;
 
+    constructor(private configService: ConfigService) { }
+
     private toolbarInit(
       mainView: ToolbarPanel,
-      tbTitle: string,
-      tbClass: string,
-      tbDivId: string,
-      tbWidth: number,
-      tbHeight: number,
-      tbPosition: number): ToolbarPanel {
+      tbTitle?: string,
+      tbClass?: string,
+      tbDivId?: string,
+      tbWidth?: number,
+      tbHeight?: number,
+      tbPosition?: number): ToolbarPanel {
 
       const toolbar: ToolbarPanel = mainView.createDFPanel(tbTitle, tbClass);
       toolbar.addContentDiv(document.getElementById(tbDivId));
@@ -40,13 +43,16 @@ export class ToolbarComponent implements AfterContentInit, OnInit {
     }
 
     public ngAfterContentInit(): void {
-
-        this.mainView = DSXDFUtil.createDSXDFUtil();
-
-        this.toolbar1 = this.toolbarInit(this.mainView, 'Toolbar #1', 'mydfa', 'toolbar1', 400, 100, DSXDFPanel.dockTop),
-        this.toolbar2 = this.toolbarInit(this.mainView, 'Toolbar #2', 'mydfa', 'toolbar2', 275, 200, DSXDFPanel.dockLeft),
-        this.toolbar3 = this.toolbarInit(this.mainView, 'Toolbar #3', 'mydfa', 'toolbar3', 350, 200, DSXDFPanel.dockRight),
-        this.toolbar4 = this.toolbarInit(this.mainView, 'Toolbar #4', 'mydfa', 'toolbar4', 400, 100, DSXDFPanel.dockBottom);
+        
+        this.configService.getJSON().subscribe((data: Object) => {
+          this.mainView = DSXDFUtil.createDSXDFUtil();
+          this.mainView.loadStatesFromString(data['Settings']);
+          this.toolbar1 = this.toolbarInit(this.mainView, 'Toolbar #1', 'mydfa', 'toolbar1', 400, 100, DSXDFPanel.dockTop),
+          this.toolbar2 = this.toolbarInit(this.mainView, 'Toolbar #2', 'mydfa', 'toolbar2', 275, 200, DSXDFPanel.dockLeft),
+          this.toolbar3 = this.toolbarInit(this.mainView, 'Toolbar #3', 'mydfa', 'toolbar3', 350, 200, DSXDFPanel.dockRight),
+          this.toolbar4 = this.toolbarInit(this.mainView, 'Toolbar #4', 'mydfa', 'toolbar4', 400, 100, DSXDFPanel.dockBottom);
+        });
+        
     }
 
     ngOnInit() {
