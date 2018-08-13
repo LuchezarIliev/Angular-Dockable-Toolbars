@@ -28,10 +28,6 @@ export class AppComponent implements AfterContentInit, OnInit {
       this.dsxdfUtil = DSXDFUtil.createDSXDFUtil();
     }
 
-    public addToolbar(): void {
-      this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #5', 'mydfa', 'toolbar5', 400, 100, DSXDFPanel.dockTop);
-    }
-
     ngOnInit() {
       this.service.setRootViewContainerRef(this.viewContainerRef);
       this.service.addToolbarComponent();
@@ -41,10 +37,15 @@ export class AppComponent implements AfterContentInit, OnInit {
       this.dsxdfUtil.addFixedPanel(document.getElementById('centerdiv'), DSXDFUtil.fixedCenter);
     }
 
+    public addToolbar(): void {
+      this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #5', 'mydfa', 'toolbar5', 400, 100, DSXDFPanel.dockTop);
+    }
+
     public persistCurrentState(): void {
       if (this.dsxdfUtil != null) {
         let savedState: string = this.dsxdfUtil.saveStatesIntoString();
         console.log('State saved!');
+        console.log(savedState);
       }
     }
 

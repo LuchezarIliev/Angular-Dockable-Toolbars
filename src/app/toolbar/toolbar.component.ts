@@ -41,7 +41,6 @@ export class ToolbarComponent implements AfterContentInit, OnInit {
 
     public toolbarInit(mainView: ToolbarPanel,tbTitle?: string,tbClass?: string, 
       tbDivId?: string, tbWidth?: number, tbHeight?: number, tbPosition?: number): ToolbarPanel {
-
       const toolbar: ToolbarPanel = mainView.createDFPanel(tbTitle, tbClass);
       toolbar.addContentDiv(document.getElementById(tbDivId));
       toolbar.initLayout(300, 50, tbWidth, tbHeight, tbPosition);

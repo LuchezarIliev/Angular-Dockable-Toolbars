@@ -11,11 +11,11 @@ import { DynamicComponent } from './dynamic.component';
       this.factoryResolver = factoryResolver;
     }
 
-    setRootViewContainerRef(viewContainerRef) {
+    setRootViewContainerRef(viewContainerRef): void {
       this.rootViewContainer = viewContainerRef;
     }
 
-    addToolbarComponent() {
+    addToolbarComponent(): void {
       const factory = this.factoryResolver.resolveComponentFactory(DynamicComponent);
       const component = factory.create(this.rootViewContainer.parentInjector);
       this.rootViewContainer.insert(component.hostView);
