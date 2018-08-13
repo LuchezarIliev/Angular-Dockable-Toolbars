@@ -22,27 +22,10 @@ export class ToolbarComponent implements AfterContentInit, OnInit {
 
     constructor(private configService: ConfigService) { }
 
-    public toolbarInit(
-      mainView: ToolbarPanel,
-      tbTitle?: string,
-      tbClass?: string,
-      tbDivId?: string,
-      tbWidth?: number,
-      tbHeight?: number,
-      tbPosition?: number): ToolbarPanel {
-
-      const toolbar: ToolbarPanel = mainView.createDFPanel(tbTitle, tbClass);
-      toolbar.addContentDiv(document.getElementById(tbDivId));
-      toolbar.initLayout(300, 50, tbWidth, tbHeight, tbPosition);
-
-      return toolbar;
+    ngOnInit() {
     }
 
-    public showToolbarComponent(visibility): void {
-      alert(visibility);
-    }
-
-    public ngAfterContentInit(): void {
+    ngAfterContentInit(): void {
 
         this.configService.getJSON().subscribe((data: Object) => {
           this.mainView = DSXDFUtil.createDSXDFUtil();
@@ -56,6 +39,17 @@ export class ToolbarComponent implements AfterContentInit, OnInit {
 
     }
 
-    ngOnInit() {
+    public toolbarInit(mainView: ToolbarPanel,tbTitle?: string,tbClass?: string, 
+      tbDivId?: string, tbWidth?: number, tbHeight?: number, tbPosition?: number): ToolbarPanel {
+
+      const toolbar: ToolbarPanel = mainView.createDFPanel(tbTitle, tbClass);
+      toolbar.addContentDiv(document.getElementById(tbDivId));
+      toolbar.initLayout(300, 50, tbWidth, tbHeight, tbPosition);
+
+      return toolbar;
+    }
+
+    public showToolbarComponent(visibility): void {
+      alert(visibility);
     }
 }
