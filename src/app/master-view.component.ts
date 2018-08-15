@@ -56,9 +56,9 @@ export class AppComponent implements AfterContentInit, OnInit {
         let savedState: string = this.dsxdfUtil.saveStatesIntoString();
         console.log('State saved!');
         let downloadSettingsLink = document.createElement('a');
-        downloadSettingsLink.download = 'Settings.json';
+        downloadSettingsLink.download = 'settings.json';
         downloadSettingsLink.href = URL.createObjectURL(new Blob(['{"Settings":' + JSON.stringify(savedState) + '}'], {type: "application/json"}));
-        downloadSettingsLink.textContent = 'Download Settings.json';
+        downloadSettingsLink.textContent = 'Download settings.json';
         document.getElementById('downloadSettings').appendChild(downloadSettingsLink);
       }
     }
