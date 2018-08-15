@@ -1,10 +1,1 @@
 /* Application-wide Styles */
-
-  #toolbar1, #toolbar2, #toolbar3, #toolbar4 {
-    overflow: auto; 
-    background-color:#f86c6b;
-  }
-  
-  * {
-    font-family: Arial, Helvetica, sans-serif;
-  }

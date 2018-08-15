@@ -27,5 +27,7 @@ export interface Coordinates {
     dockTop: number,
     dockLeft: number,
     dockRight: number,
-    dockBottom: number
+    dockBottom: number,
+    floated: number,
+    tabbed: number
   }

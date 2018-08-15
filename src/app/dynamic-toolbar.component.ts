@@ -1,6 +1,9 @@
-import { Component } from '@angular/core'
+
+import { Component } from '@angular/core';
+
 @Component({
-  selector: 'dynamic-component',
+  selector: 'dynamic-toolbar-component',
   template: `<app-toolbar></app-toolbar>`
 })
+
 export class DynamicComponent { }

@@ -1,5 +1,5 @@
+
 import { ComponentFactoryResolver, Injectable, Inject } from '@angular/core';
-import { DynamicComponent } from './dynamic.component';
 
   @Injectable()
   export class Service {
@@ -11,12 +11,12 @@ import { DynamicComponent } from './dynamic.component';
       this.factoryResolver = factoryResolver;
     }
 
-    setRootViewContainerRef(viewContainerRef): void {
+    public setRootViewContainerRef(viewContainerRef): void {
       this.rootViewContainer = viewContainerRef;
     }
 
-    addToolbarComponent(): void {
-      const factory = this.factoryResolver.resolveComponentFactory(DynamicComponent);
+    public addToolbarComponent(selectedComponent): void {
+      const factory = this.factoryResolver.resolveComponentFactory(selectedComponent);
       const component = factory.create(this.rootViewContainer.parentInjector);
       this.rootViewContainer.insert(component.hostView);
     }

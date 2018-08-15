@@ -1,6 +1,7 @@
 
 import { Component, Inject, ViewChild, ViewContainerRef, AfterContentInit, OnInit } from '@angular/core';
-import { Service } from './service.loader'
+import { Service } from './service.loader';
+import { DynamicComponent } from './dynamic-toolbar.component';
 import { ConfigService } from './config.service';
 import { ToolbarPanel, DockPosition } from './app.interfaces';
 import { ToolbarComponent } from './toolbar/toolbar.component';
@@ -9,7 +10,7 @@ declare var DSXDFUtil: ToolbarPanel;
 declare var DSXDFPanel: DockPosition;
 
 @Component({
-  providers: [ToolbarComponent, ConfigService],
+  providers: [DynamicComponent, ToolbarComponent, ConfigService],
   selector: 'app-root',
   templateUrl: './master-view.component.html',
   styleUrls: ['./master-view.component.css']
@@ -25,27 +26,40 @@ export class AppComponent implements AfterContentInit, OnInit {
 
     constructor(@Inject(Service) service, private toolbarComponent: ToolbarComponent, private configService: ConfigService) {
       this.service = service;
-      this.dsxdfUtil = DSXDFUtil.createDSXDFUtil();
     }
 
     ngOnInit() {
       this.service.setRootViewContainerRef(this.viewContainerRef);
-      this.service.addToolbarComponent();
+      this.service.addToolbarComponent(DynamicComponent);
     }
 
     ngAfterContentInit() {
-      this.dsxdfUtil.addFixedPanel(document.getElementById('centerdiv'), DSXDFUtil.fixedCenter);
+      this.configService.getJSON().subscribe((data: Object) => {
+        this.dsxdfUtil = DSXDFUtil.createDSXDFUtil();
+        this.dsxdfUtil.addFixedPanel(document.getElementById('centerdiv'), DSXDFUtil.fixedCenter);
+        this.dsxdfUtil.loadStatesFromString(data['Settings']);
+        console.log('State loaded!');
+        this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #1', 'mydfa', 'toolbar1', 400, 100, DSXDFPanel.dockTop);
+        this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #2', 'mydfa', 'toolbar2', 275, 200, DSXDFPanel.dockLeft);
+        this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #3', 'mydfa', 'toolbar3', 350, 200, DSXDFPanel.dockRight);
+        this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #4', 'mydfa', 'toolbar4', 400, 100, DSXDFPanel.dockBottom);
+      });
     }
 
     public addToolbar(): void {
-      this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #5', 'mydfa', 'toolbar5', 400, 100, DSXDFPanel.dockTop);
+      this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #5', 'mydfa', 'toolbar5', 400, 100, DSXDFPanel.floated);
     }
 
-    public persistCurrentState(): void {
+    public getCurrentState(): void {
+
       if (this.dsxdfUtil != null) {
         let savedState: string = this.dsxdfUtil.saveStatesIntoString();
         console.log('State saved!');
-        console.log(savedState);
+        let downloadSettingsLink = document.createElement('a');
+        downloadSettingsLink.download = 'Settings.json';
+        downloadSettingsLink.href = URL.createObjectURL(new Blob(['{"Settings":' + JSON.stringify(savedState) + '}'], {type: "application/json"}));
+        downloadSettingsLink.textContent = 'Download Settings.json';
+        document.getElementById('downloadSettings').appendChild(downloadSettingsLink);
       }
     }
 

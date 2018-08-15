@@ -9,7 +9,8 @@ import { AppBootstrapModule } from './app-bootstrap.module';
 
 import { AppComponent } from './master-view.component';
 import { Service } from './service.loader';
-import { DynamicComponent } from './dynamic.component';
+import { DynamicComponent } from './dynamic-toolbar.component';
+import { Toolbar1 } from './toolbar/toolbar1.component';
 import { ControlComponent } from './control/control.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
@@ -17,6 +18,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
   declarations: [
     AppComponent,
     DynamicComponent,
+    Toolbar1,
     ControlComponent,
     ToolbarComponent
   ],
@@ -28,7 +30,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
   ],
   providers: [Service],
   bootstrap: [AppComponent],
-  entryComponents: [DynamicComponent]
+  entryComponents: [DynamicComponent, Toolbar1]
 })
 
 export class AppModule {

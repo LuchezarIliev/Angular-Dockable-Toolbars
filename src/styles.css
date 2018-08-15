@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
-
+.toolbar {
+    overflow: auto; 
+    background-color:#f86c6b;
+  }
 /* for auto hide panel*/
 .dfahpanelleft, .dfahpaneltop, .dfahpanelright, .dfahpanelbottom {
     background-Color: #067002;

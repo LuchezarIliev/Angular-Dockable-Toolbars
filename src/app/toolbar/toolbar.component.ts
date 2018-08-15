@@ -1,46 +1,32 @@
 
-import { Component, AfterContentInit, OnInit } from '@angular/core';
-import { ToolbarPanel, DockPosition } from '../app.interfaces';
-import { ConfigService } from '../config.service';
-
-declare var DSXDFUtil: ToolbarPanel;
-declare var DSXDFPanel: DockPosition;
+import { Component, Inject, ViewChild, ViewContainerRef, OnInit } from '@angular/core';
+import { ToolbarPanel } from '../app.interfaces';
+import { Service } from '../service.loader';
+import { Toolbar1 } from './toolbar1.component';
 
 @Component({
+  providers: [Toolbar1],
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.css']
 })
 
-export class ToolbarComponent implements AfterContentInit, OnInit {
+export class ToolbarComponent implements OnInit {
 
-    public mainView: ToolbarPanel;
-    public toolbar1: ToolbarPanel;
-    public toolbar2: ToolbarPanel;
-    public toolbar3: ToolbarPanel;
-    public toolbar4: ToolbarPanel;
+    public service: any;
 
-    constructor(private configService: ConfigService) { }
+    @ViewChild('toolbar1', { read: ViewContainerRef }) viewContainerRef: ViewContainerRef
+
+    constructor(@Inject(Service) service) { this.service = service; }
 
     ngOnInit() {
-    }
-
-    ngAfterContentInit(): void {
-
-        this.configService.getJSON().subscribe((data: Object) => {
-          this.mainView = DSXDFUtil.createDSXDFUtil();
-          this.mainView.loadStatesFromString(data['Settings']);
-          console.log('State loaded!');
-          this.toolbar1 = this.toolbarInit(this.mainView, 'Toolbar #1', 'mydfa', 'toolbar1', 400, 100, DSXDFPanel.dockTop),
-          this.toolbar2 = this.toolbarInit(this.mainView, 'Toolbar #2', 'mydfa', 'toolbar2', 275, 200, DSXDFPanel.dockLeft),
-          this.toolbar3 = this.toolbarInit(this.mainView, 'Toolbar #3', 'mydfa', 'toolbar3', 350, 200, DSXDFPanel.dockRight),
-          this.toolbar4 = this.toolbarInit(this.mainView, 'Toolbar #4', 'mydfa', 'toolbar4', 400, 100, DSXDFPanel.dockBottom);
-        });
-
+      this.service.setRootViewContainerRef(this.viewContainerRef);
+      this.service.addToolbarComponent(Toolbar1);
     }
 
     public toolbarInit(mainView: ToolbarPanel,tbTitle?: string,tbClass?: string, 
       tbDivId?: string, tbWidth?: number, tbHeight?: number, tbPosition?: number): ToolbarPanel {
+        
       const toolbar: ToolbarPanel = mainView.createDFPanel(tbTitle, tbClass);
       toolbar.addContentDiv(document.getElementById(tbDivId));
       toolbar.initLayout(300, 50, tbWidth, tbHeight, tbPosition);
