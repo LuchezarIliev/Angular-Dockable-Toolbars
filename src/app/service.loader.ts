@@ -1,15 +1,12 @@
 
-import { ComponentFactoryResolver, Injectable, Inject } from '@angular/core';
+import { ComponentFactoryResolver, Injectable } from '@angular/core';
 
   @Injectable()
   export class Service {
 
-    public factoryResolver: any;
     public rootViewContainer: any;
 
-    constructor(@Inject(ComponentFactoryResolver) factoryResolver) {
-      this.factoryResolver = factoryResolver;
-    }
+    constructor(private factoryResolver: ComponentFactoryResolver) { }
 
     public setRootViewContainerRef(viewContainerRef): void {
       this.rootViewContainer = viewContainerRef;

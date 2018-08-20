@@ -1,5 +1,5 @@
 
-import { Component, Inject, ViewChild, ViewContainerRef, AfterContentInit, OnInit } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef, AfterContentInit, OnInit } from '@angular/core';
 import { Service } from './service.loader';
 import { DynamicComponent } from './dynamic-toolbar.component';
 import { ConfigService } from './config.service';
@@ -20,17 +20,14 @@ export class AppComponent implements AfterContentInit, OnInit {
 
     public dsxdfUtil: ToolbarPanel;
     public toolbar: ToolbarPanel;
-    public service: any;
 
     @ViewChild('dynamic', { read: ViewContainerRef }) viewContainerRef: ViewContainerRef
 
-    constructor(@Inject(Service) service, private toolbarComponent: ToolbarComponent, private configService: ConfigService) {
-      this.service = service;
-    }
+    constructor(private serviceLoader: Service, private toolbarComponent: ToolbarComponent, private configService: ConfigService) { }
 
     ngOnInit() {
-      this.service.setRootViewContainerRef(this.viewContainerRef);
-      this.service.addToolbarComponent(DynamicComponent);
+      this.serviceLoader.setRootViewContainerRef(this.viewContainerRef);
+      this.serviceLoader.addToolbarComponent(DynamicComponent);
     }
 
     ngAfterContentInit() {

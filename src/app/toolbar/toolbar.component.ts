@@ -1,5 +1,5 @@
 
-import { Component, Inject, ViewChild, ViewContainerRef, OnInit } from '@angular/core';
+import { Component, ViewChild, ViewContainerRef, OnInit } from '@angular/core';
 import { ToolbarPanel } from '../app.interfaces';
 import { Service } from '../service.loader';
 import { Toolbar1 } from './toolbar1.component';
@@ -13,15 +13,13 @@ import { Toolbar1 } from './toolbar1.component';
 
 export class ToolbarComponent implements OnInit {
 
-    public service: any;
-
     @ViewChild('toolbar1', { read: ViewContainerRef }) viewContainerRef: ViewContainerRef
 
-    constructor(@Inject(Service) service) { this.service = service; }
+    constructor(private serviceLoader: Service) { }
 
     ngOnInit() {
-      this.service.setRootViewContainerRef(this.viewContainerRef);
-      this.service.addToolbarComponent(Toolbar1);
+      this.serviceLoader.setRootViewContainerRef(this.viewContainerRef);
+      this.serviceLoader.addToolbarComponent(Toolbar1);
     }
 
     public toolbarInit(mainView: ToolbarPanel,tbTitle?: string,tbClass?: string, 
