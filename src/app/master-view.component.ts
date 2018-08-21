@@ -21,7 +21,7 @@ export class AppComponent implements AfterContentInit, OnInit {
     public dsxdfUtil: ToolbarPanel;
     public toolbar: ToolbarPanel;
 
-    @ViewChild('dynamic', { read: ViewContainerRef }) viewContainerRef: ViewContainerRef
+    @ViewChild('dynamic', { read: ViewContainerRef }) viewContainerRef: ViewContainerRef;
 
     constructor(private serviceLoader: Service, private toolbarComponent: ToolbarComponent, private configService: ConfigService) { }
 
