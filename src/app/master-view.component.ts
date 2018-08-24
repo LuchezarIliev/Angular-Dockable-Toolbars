@@ -32,19 +32,32 @@ export class AppComponent implements AfterContentInit, OnInit {
 
     ngAfterContentInit() {
       this.configService.getJSON().subscribe((data: Object) => {
+        // 1. Create master-view
         this.dsxdfUtil = DSXDFUtil.createDSXDFUtil();
         this.dsxdfUtil.addFixedPanel(document.getElementById('centerdiv'), DSXDFUtil.fixedCenter);
+        // 2. Load settings from .json
         this.dsxdfUtil.loadStatesFromString(data['Settings']);
         console.log('State loaded!');
-        this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #1', 'mydfa', 'toolbar1', 400, 100, DSXDFPanel.dockTop);
-        this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #2', 'mydfa', 'toolbar2', 275, 200, DSXDFPanel.dockLeft);
-        this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #3', 'mydfa', 'toolbar3', 350, 200, DSXDFPanel.dockRight);
-        this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #4', 'mydfa', 'toolbar4', 400, 100, DSXDFPanel.dockBottom);
+        
+        /* Loads the toolbars with updated settings
+          for (let i = 1; i <= 4; i++) {
+            this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #' + i, 'mydfa', 'toolbar' + i);
+          }
+        */
+        
+          this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #1', 'mydfa', 'toolbar1', 400, 100, DSXDFPanel.dockTop);
+          this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #2', 'mydfa', 'toolbar2', 275, 200, DSXDFPanel.dockLeft);
+          this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #3', 'mydfa', 'toolbar3', 350, 200, DSXDFPanel.dockRight);
+          this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #4', 'mydfa', 'toolbar4', 400, 100, DSXDFPanel.dockBottom);
+        
       });
     }
 
     public addToolbar(): void {
-      this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #5', 'mydfa', 'toolbar5', 400, 100, DSXDFPanel.floated);
+      // 3. Dynamically create div element on click of a button
+
+      // 4. Div becomes toolbar with loaded settings
+      this.toolbarComponent.toolbarInit(this.dsxdfUtil, 'Toolbar #1', 'mydfa', 'toolbar1');
     }
 
     public getCurrentState(): void {

@@ -28,8 +28,8 @@ export class ToolbarComponent implements OnInit {
       this.serviceLoader.addToolbarComponent(Toolbar4);
     }
 
-    public toolbarInit(mainView: ToolbarPanel,tbTitle?: string,tbClass?: string, 
-      tbDivId?: string, tbWidth?: number, tbHeight?: number, tbPosition?: number): ToolbarPanel {
+    public toolbarInit(mainView: ToolbarPanel, tbTitle: string, tbClass: string, tbDivId: string, 
+      tbWidth?: number, tbHeight?: number, tbPosition?: number): ToolbarPanel {
         
       const toolbar: ToolbarPanel = mainView.createDFPanel(tbTitle, tbClass);
       toolbar.addContentDiv(document.getElementById(tbDivId));

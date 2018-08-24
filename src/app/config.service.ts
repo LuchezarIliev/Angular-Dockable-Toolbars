@@ -10,6 +10,7 @@ export class ConfigService {
   constructor(private http: HttpClient) { }
 
   public getJSON(): Observable<Object> {
+    console.log(this.http.get<Object>(this.settingsUrl) );
     return this.http.get<Object>(this.settingsUrl);
   }
 
