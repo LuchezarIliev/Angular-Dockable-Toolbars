@@ -1,0 +1,15 @@
+
+<div id="centerdiv">
+
+    <label>>Master-View<</label>
+    <input type="button" class="btn btn-primary" value="Get Current State" (click)="getCurrentState()" tooltip="Click to get state!">
+    <input type="button" class="btn btn-primary" value="Add Toolbar" (click)="addToolbar()" tooltip="Click to Add Toolbar!">
+    <div id="downloadSettings"></div>
+
+    <button type="button" class="btn btn-primary" (click)="getImageFromService()">Get Random Image</button>
+    <img [attr.src]="imageToShow" *ngIf="!isImageLoading; else loadingImage">
+    <ng-template #loadingImage>
+        <img src="assets/img/loading.gif">
+    </ng-template>
+    
+</div>
